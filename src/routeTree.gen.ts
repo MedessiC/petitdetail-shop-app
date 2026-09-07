@@ -11,7 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AProposRouteImport } from './routes/a-propos'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as CatalogueRouteImport } from './routes/catalogue'
+import { Route as CommanderRouteImport } from './routes/commander'
 import { Route as PanierRouteImport } from './routes/panier'
 import { Route as ProduitIdRouteImport } from './routes/produit.$id'
 
@@ -25,9 +27,19 @@ const AProposRoute = AProposRouteImport.update({
   path: '/a-propos',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CatalogueRoute = CatalogueRouteImport.update({
   id: '/catalogue',
   path: '/catalogue',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommanderRoute = CommanderRouteImport.update({
+  id: '/commander',
+  path: '/commander',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PanierRoute = PanierRouteImport.update({
@@ -44,14 +56,18 @@ const ProduitIdRoute = ProduitIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
+  '/admin': typeof AdminRoute
   '/catalogue': typeof CatalogueRoute
+  '/commander': typeof CommanderRoute
   '/panier': typeof PanierRoute
   '/produit/$id': typeof ProduitIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
+  '/admin': typeof AdminRoute
   '/catalogue': typeof CatalogueRoute
+  '/commander': typeof CommanderRoute
   '/panier': typeof PanierRoute
   '/produit/$id': typeof ProduitIdRoute
 }
@@ -59,22 +75,48 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
+  '/admin': typeof AdminRoute
   '/catalogue': typeof CatalogueRoute
+  '/commander': typeof CommanderRoute
   '/panier': typeof PanierRoute
   '/produit/$id': typeof ProduitIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/a-propos' | '/catalogue' | '/panier' | '/produit/$id'
+  fullPaths:
+    | '/'
+    | '/a-propos'
+    | '/admin'
+    | '/catalogue'
+    | '/commander'
+    | '/panier'
+    | '/produit/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/a-propos' | '/catalogue' | '/panier' | '/produit/$id'
-  id: '__root__' | '/' | '/a-propos' | '/catalogue' | '/panier' | '/produit/$id'
+  to:
+    | '/'
+    | '/a-propos'
+    | '/admin'
+    | '/catalogue'
+    | '/commander'
+    | '/panier'
+    | '/produit/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/a-propos'
+    | '/admin'
+    | '/catalogue'
+    | '/commander'
+    | '/panier'
+    | '/produit/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AProposRoute: typeof AProposRoute
+  AdminRoute: typeof AdminRoute
   CatalogueRoute: typeof CatalogueRoute
+  CommanderRoute: typeof CommanderRoute
   PanierRoute: typeof PanierRoute
   ProduitIdRoute: typeof ProduitIdRoute
 }
@@ -95,11 +137,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AProposRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/catalogue': {
       id: '/catalogue'
       path: '/catalogue'
       fullPath: '/catalogue'
       preLoaderRoute: typeof CatalogueRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/commander': {
+      id: '/commander'
+      path: '/commander'
+      fullPath: '/commander'
+      preLoaderRoute: typeof CommanderRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/panier': {
@@ -122,7 +178,9 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AProposRoute: AProposRoute,
+  AdminRoute: AdminRoute,
   CatalogueRoute: CatalogueRoute,
+  CommanderRoute: CommanderRoute,
   PanierRoute: PanierRoute,
   ProduitIdRoute: ProduitIdRoute,
 }
