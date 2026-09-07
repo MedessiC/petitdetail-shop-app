@@ -45,7 +45,7 @@ function Accueil() {
             <Link
               key={c.id}
               to="/catalogue"
-              search={{ categorie: c.slug, tri: "recent" as const }}
+              search={{ categorie: c.slug }}
               className="group block"
             >
               <div className="aspect-[4/5] overflow-hidden bg-muted">

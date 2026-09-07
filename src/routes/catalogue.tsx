@@ -6,15 +6,15 @@ import { useDb } from "@/data/db";
 type Tri = "recent" | "prix-asc" | "prix-desc";
 
 interface CatalogueSearch {
-  categorie: string;
-  tri: Tri;
+  categorie?: string;
+  tri?: Tri;
 }
 
 export const Route = createFileRoute("/catalogue")({
   validateSearch: (search: Record<string, unknown>): CatalogueSearch => ({
-    categorie: typeof search.categorie === "string" ? search.categorie : "tous",
-    tri: (["recent", "prix-asc", "prix-desc"] as const).includes(search.tri as Tri)
-      ? (search.tri as Tri)
+    categorie: typeof search["categorie"] === "string" ? (search["categorie"] as string) : "tous",
+    tri: (["recent", "prix-asc", "prix-desc"] as const).includes(search["tri"] as Tri)
+      ? (search["tri"] as Tri)
       : "recent",
   }),
   head: () => ({
@@ -36,7 +36,7 @@ export const Route = createFileRoute("/catalogue")({
 });
 
 function Catalogue() {
-  const { categorie, tri } = Route.useSearch();
+  const { categorie = "tous", tri = "recent" } = Route.useSearch();
   const navigate = useNavigate({ from: "/catalogue" });
   const { products, categories } = useDb();
 

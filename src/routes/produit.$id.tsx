@@ -109,7 +109,7 @@ function FicheProduit() {
                     product_id: product.id,
                     nom: product.nom,
                     prix_unitaire: product.prix,
-                    image: product.images[0],
+                    image: product.images[0] ?? "",
                   },
                   quantite,
                 );
