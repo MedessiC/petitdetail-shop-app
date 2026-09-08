@@ -10,7 +10,7 @@ import { t as Route$8 } from "./produit._id-vQfDGnSk.mjs";
 import { t as Toaster } from "../_libs/sonner.mjs";
 import { t as hero_image1_default } from "./hero-image1-BsSvHPx8.mjs";
 import { t as QueryClient } from "../_libs/tanstack__query-core.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/router-Cvm698zv.js
+//#region node_modules/.nitro/vite/services/ssr/assets/router-DwnnitUg.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 function Footer() {
@@ -80,12 +80,62 @@ function Footer() {
 		})]
 	});
 }
+var CONSENT_KEY = "petitdetail.cookie-consent.v1";
+function CookieConsent() {
+	const [visible, setVisible] = (0, import_react.useState)(false);
+	(0, import_react.useEffect)(() => {
+		try {
+			setVisible(window.localStorage.getItem(CONSENT_KEY) === null);
+		} catch {
+			setVisible(true);
+		}
+	}, []);
+	function saveConsent(status) {
+		try {
+			window.localStorage.setItem(CONSENT_KEY, status);
+		} catch {
+			setVisible(false);
+		}
+		setVisible(false);
+	}
+	if (!visible) return null;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("aside", {
+		role: "dialog",
+		"aria-label": "Préférences de cookies",
+		"aria-live": "polite",
+		className: "fixed bottom-24 left-3 right-3 z-[60] rounded-2xl border border-border bg-background/95 p-5 shadow-[0_12px_40px_rgba(0,0,0,0.18)] backdrop-blur-xl md:bottom-6 md:left-auto md:max-w-md",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+				className: "font-display text-xl",
+				children: "Votre confidentialité compte"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				className: "mt-2 text-sm leading-relaxed text-muted-foreground",
+				children: "Nous utilisons des cookies essentiels pour assurer le bon fonctionnement de la boutique. Vous pouvez accepter ou continuer sans cookies optionnels."
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "mt-4 flex flex-wrap justify-end gap-2",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+					type: "button",
+					onClick: () => saveConsent("refused"),
+					className: "min-h-10 rounded-full border border-border px-4 text-xs uppercase tracking-[0.12em] transition hover:border-foreground",
+					children: "Refuser"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+					type: "button",
+					onClick: () => saveConsent("accepted"),
+					className: "min-h-10 rounded-full bg-foreground px-4 text-xs uppercase tracking-[0.12em] text-background transition hover:opacity-80",
+					children: "Accepter"
+				})]
+			})
+		]
+	});
+}
 var visuelsCategories = {
 	colliers: IMAGES.colliers,
 	bracelets: IMAGES.bracelets,
 	bagues: IMAGES.bagues
 };
-var whatsappUrl = "https://wa.me/22991954765?text=Bonjour%20petitd%C3%A9tail%2C%20je%20souhaite%20un%20renseignement.";
+var whatsappUrl$1 = "https://wa.me/22991954765?text=Bonjour%20petitd%C3%A9tail%2C%20je%20souhaite%20un%20renseignement.";
 function MobileCategoryNav() {
 	const { categories } = useDb();
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("nav", {
@@ -140,7 +190,7 @@ function MobileCategoryNav() {
 					"aria-hidden": "true"
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-					href: whatsappUrl,
+					href: whatsappUrl$1,
 					target: "_blank",
 					rel: "noreferrer",
 					"aria-label": "Contacter petitdétail sur WhatsApp",
@@ -186,6 +236,7 @@ var liens = [
 		label: "Contact"
 	}
 ];
+var whatsappUrl = "https://wa.me/22991954765?text=Bonjour%20petitd%C3%A9tail%2C%20je%20souhaite%20un%20renseignement.";
 function Navbar() {
 	const [ouvert, setOuvert] = (0, import_react.useState)(false);
 	const [recherche, setRecherche] = (0, import_react.useState)("");
@@ -264,6 +315,18 @@ function Navbar() {
 							})]
 						})
 					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+						href: whatsappUrl,
+						target: "_blank",
+						rel: "noreferrer",
+						"aria-label": "Contacter petitdétail sur WhatsApp",
+						title: "Contacter sur WhatsApp",
+						className: "hidden h-11 w-11 shrink-0 items-center justify-center text-[#25D366] transition hover:opacity-70 md:flex",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FaWhatsapp, {
+							size: 22,
+							"aria-hidden": "true"
+						})
+					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
 						to: "/panier",
 						"aria-label": `Panier, ${nombreArticles} article(s)`,
@@ -319,7 +382,7 @@ var Toaster$1 = ({ ...props }) => {
 		...props
 	});
 };
-var styles_default = "/assets/styles-BOeixyF6.css";
+var styles_default = "/assets/styles-Bg-Xi8-c.css";
 function reportLovableError(error, context = {}) {
 	if (typeof window === "undefined") return;
 	window.__lovableEvents?.captureException?.(error, {
@@ -506,6 +569,7 @@ function RootComponent() {
 				]
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(MobileCategoryNav, {}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CookieConsent, {}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Toaster$1, {})
 		] })
 	});
@@ -602,7 +666,7 @@ var Route$2 = createFileRoute("/commander")({
 	] }),
 	component: lazyRouteComponent($$splitComponentImporter$2, "component")
 });
-var $$splitComponentImporter$1 = () => import("./contact-UdYGbfLW.mjs");
+var $$splitComponentImporter$1 = () => import("./contact-BvpQxf_2.mjs");
 var Route$1 = createFileRoute("/contact")({
 	head: () => ({ meta: [
 		{ title: "Contact — petitdétail." },

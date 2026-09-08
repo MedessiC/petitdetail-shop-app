@@ -10,6 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import { Footer } from "../components/Footer";
+import { CookieConsent } from "../components/CookieConsent";
 import { MobileCategoryNav } from "../components/MobileCategoryNav";
 import { Navbar } from "../components/Navbar";
 import { Toaster } from "../components/ui/sonner";
@@ -150,6 +151,7 @@ function RootComponent() {
           <Footer />
         </div>
         <MobileCategoryNav />
+        <CookieConsent />
         <Toaster />
       </CartProvider>
     </QueryClientProvider>

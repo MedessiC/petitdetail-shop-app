@@ -1,7 +1,7 @@
 import { r as require_jsx_runtime } from "../_libs/react+tanstack__react-query.mjs";
 import { a as Mail } from "../_libs/lucide-react.mjs";
 import { a as FaWhatsapp, i as FaTiktok, n as FaLinkedinIn, r as FaPhone, t as FaFacebookF } from "../_libs/react-icons.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/contact-UdYGbfLW.js
+//#region node_modules/.nitro/vite/services/ssr/assets/contact-BvpQxf_2.js
 var import_jsx_runtime = require_jsx_runtime();
 var telephone = "+22991954765";
 var email = "contact@petitdetail.bj";
