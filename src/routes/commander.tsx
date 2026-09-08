@@ -16,6 +16,7 @@ export const Route = createFileRoute("/commander")({
       },
       { property: "og:title", content: "Commander — petitdétail." },
       { property: "og:description", content: "Livraison à Cotonou, paiement à la réception." },
+      { name: "robots", content: "noindex, nofollow" },
     ],
   }),
   component: Commander,
@@ -38,7 +39,7 @@ function Commander() {
         </p>
         <Link
           to="/catalogue"
-          className="mt-8 inline-flex min-h-11 items-center border border-foreground px-8 text-sm uppercase tracking-[0.18em]"
+          className="mt-8 inline-flex min-h-11 items-center rounded-md border border-foreground px-8 text-sm uppercase tracking-[0.18em]"
         >
           Continuer mes achats
         </Link>
@@ -122,7 +123,7 @@ function Commander() {
 
           <button
             type="submit"
-            className="min-h-12 w-full bg-foreground text-sm uppercase tracking-[0.18em] text-background"
+            className="min-h-12 w-full rounded-md bg-foreground text-sm uppercase tracking-[0.18em] text-background"
           >
             Valider la commande
           </button>

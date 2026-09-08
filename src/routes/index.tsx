@@ -39,19 +39,20 @@ function Accueil() {
       <Hero />
 
       <section className="mx-auto max-w-6xl px-4 py-16">
-        <h2 className="text-center font-display text-3xl">Nos catégories</h2>
-        <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3">
-          {categories.map((c) => (
+        <h2 className="reveal text-center font-display text-2xl">Nos catégories</h2>
+        <div className="mx-auto mt-8 grid max-w-2xl grid-cols-3 gap-3 sm:gap-5">
+          {categories.map((category, index) => (
             <Link
-              key={c.id}
+              key={category.id}
               to="/catalogue"
-              search={{ categorie: c.slug }}
-              className="group block"
+              search={{ categorie: category.slug }}
+              className="group reveal block"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="aspect-[4/5] overflow-hidden bg-muted">
+              <div className="aspect-square overflow-hidden rounded-md bg-muted">
                 <img
-                  src={VISUELS[c.slug] ?? IMAGES.colliers}
-                  alt={c.nom}
+                  src={VISUELS[category.slug] ?? IMAGES.colliers}
+                  alt={category.nom}
                   width={1024}
                   height={1024}
                   loading="lazy"
@@ -59,14 +60,16 @@ function Accueil() {
                   className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                 />
               </div>
-              <p className="mt-3 text-center text-sm uppercase tracking-[0.18em]">{c.nom}</p>
+              <p className="mt-2 text-center text-[10px] uppercase tracking-[0.12em] sm:text-xs">
+                {category.nom}
+              </p>
             </Link>
           ))}
         </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-8">
-        <h2 className="text-center font-display text-3xl">Coups de cœur</h2>
+        <h2 className="reveal text-center font-display text-3xl">Coups de cœur</h2>
         <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-4">
           {enAvant.map((p) => (
             <ProductCard key={p.id} product={p} />
@@ -75,7 +78,8 @@ function Accueil() {
         <div className="mt-12 text-center">
           <Link
             to="/catalogue"
-            className="inline-flex min-h-11 items-center border border-foreground px-8 text-sm uppercase tracking-[0.18em] transition hover:bg-foreground hover:text-background"
+            className="reveal inline-flex min-h-11 items-center rounded-md border border-foreground px-8 text-sm uppercase tracking-[0.18em] transition hover:bg-foreground hover:text-background"
+            style={{ animationDelay: "180ms" }}
           >
             Voir tout le catalogue
           </Link>

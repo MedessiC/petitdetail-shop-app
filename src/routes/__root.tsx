@@ -9,6 +9,12 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
+import { Footer } from "../components/Footer";
+import { MobileCategoryNav } from "../components/MobileCategoryNav";
+import { Navbar } from "../components/Navbar";
+import { Toaster } from "../components/ui/sonner";
+import { CartProvider } from "../context/CartContext";
+import socialImage from "../assets/hero-image1.png";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
@@ -77,21 +83,36 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "petitdétail. — bijoux et accessoires" },
+      {
+        name: "description",
+        content: "Bijoux et accessoires choisis avec soin, pour le petit détail qui compte.",
+      },
+      { name: "author", content: "petitdétail." },
+      { name: "robots", content: "index, follow" },
+      { name: "theme-color", content: "#000000" },
+      { property: "og:title", content: "petitdétail. — bijoux et accessoires" },
+      {
+        property: "og:description",
+        content: "Bijoux et accessoires choisis avec soin, pour le petit détail qui compte.",
+      },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "petitdétail." },
+      { property: "og:locale", content: "fr_FR" },
+      { property: "og:image", content: socialImage },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "petitdétail. — bijoux et accessoires" },
+      {
+        name: "twitter:description",
+        content: "Bijoux et accessoires choisis avec soin, pour le petit détail qui compte.",
+      },
+      { name: "twitter:image", content: socialImage },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
   }),
   shellComponent: RootShell,
@@ -102,7 +123,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="fr">
       <head>
         <HeadContent />
       </head>
@@ -119,8 +140,18 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <CartProvider>
+        <div className="flex min-h-screen flex-col">
+          <Navbar />
+          <main className="flex-1 pt-24">
+            {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+            <Outlet />
+          </main>
+          <Footer />
+        </div>
+        <MobileCategoryNav />
+        <Toaster />
+      </CartProvider>
     </QueryClientProvider>
   );
 }

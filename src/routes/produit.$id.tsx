@@ -5,7 +5,7 @@ import { toast } from "sonner";
 import { ProductCard } from "@/components/ProductCard";
 import { useCart } from "@/context/CartContext";
 import { useDb } from "@/data/db";
-import { formatFCFA } from "@/lib/format";
+import { formatFCFA, prixPromotion } from "@/lib/format";
 
 export const Route = createFileRoute("/produit/$id")({
   head: () => ({
@@ -73,14 +73,20 @@ function FicheProduit() {
             </p>
           )}
           <h1 className="mt-3 font-display text-4xl">{product.nom}</h1>
-          <p className="mt-4 text-2xl">{formatFCFA(product.prix)}</p>
+          <div className="mt-4 flex items-center gap-3">
+            <p className="text-2xl font-semibold">{formatFCFA(prixPromotion(product.prix))}</p>
+            <p className="text-sm text-muted-foreground line-through">{formatFCFA(product.prix)}</p>
+            <span className="rounded-full bg-foreground px-2 py-1 text-[10px] font-medium text-background">
+              -20%
+            </span>
+          </div>
           <p className="mt-6 leading-relaxed text-muted-foreground">{product.description}</p>
           <p className="mt-4 text-sm text-muted-foreground">
             {product.stock > 0 ? `En stock (${product.stock} pièces)` : "Rupture de stock"}
           </p>
 
           <div className="mt-8 flex items-center gap-4">
-            <div className="flex items-center border border-border">
+            <div className="flex items-center rounded-md border border-border">
               <button
                 type="button"
                 aria-label="Diminuer la quantité"
@@ -108,14 +114,14 @@ function FicheProduit() {
                   {
                     product_id: product.id,
                     nom: product.nom,
-                    prix_unitaire: product.prix,
+                    prix_unitaire: prixPromotion(product.prix),
                     image: product.images[0] ?? "",
                   },
                   quantite,
                 );
                 toast.success("Ajouté au panier");
               }}
-              className="min-h-11 flex-1 bg-foreground px-6 text-sm uppercase tracking-[0.18em] text-background transition hover:opacity-85 disabled:opacity-40"
+              className="min-h-11 flex-1 rounded-md bg-foreground px-6 text-sm uppercase tracking-[0.18em] text-background transition hover:opacity-85 disabled:opacity-40"
             >
               Ajouter au panier
             </button>

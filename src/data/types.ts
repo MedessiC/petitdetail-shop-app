@@ -14,12 +14,15 @@ export interface Category {
   slug: string;
 }
 
+export type Genre = "homme" | "femme" | "mixte";
+
 export interface Product {
   id: string;
   nom: string;
   description: string;
   prix: number; // en FCFA
   category_id: string;
+  genre?: Genre;
   images: string[];
   stock: number;
   actif: boolean;

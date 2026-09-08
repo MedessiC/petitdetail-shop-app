@@ -13,6 +13,7 @@ export const Route = createFileRoute("/panier")({
       },
       { property: "og:title", content: "Panier — petitdétail." },
       { property: "og:description", content: "Vos bijoux sélectionnés chez petitdétail." },
+      { name: "robots", content: "noindex, nofollow" },
     ],
   }),
   component: Panier,
@@ -30,7 +31,7 @@ function Panier() {
           <p className="text-muted-foreground">Votre panier est vide.</p>
           <Link
             to="/catalogue"
-            className="mt-6 inline-flex min-h-11 items-center border border-foreground px-8 text-sm uppercase tracking-[0.18em]"
+            className="mt-6 inline-flex min-h-11 items-center rounded-md border border-foreground px-8 text-sm uppercase tracking-[0.18em]"
           >
             Voir le catalogue
           </Link>
@@ -52,7 +53,7 @@ function Panier() {
                   <p className="font-display text-lg">{i.nom}</p>
                   <p className="text-sm text-muted-foreground">{formatFCFA(i.prix_unitaire)}</p>
                   <div className="mt-3 flex items-center gap-4">
-                    <div className="flex items-center border border-border">
+                    <div className="flex items-center rounded-md border border-border">
                       <button
                         type="button"
                         aria-label="Diminuer la quantité"
@@ -92,7 +93,7 @@ function Panier() {
 
           <Link
             to="/commander"
-            className="mt-8 flex min-h-12 w-full items-center justify-center bg-foreground text-sm uppercase tracking-[0.18em] text-background"
+            className="mt-8 flex min-h-12 w-full items-center justify-center rounded-md bg-foreground text-sm uppercase tracking-[0.18em] text-background"
           >
             Commander
           </Link>

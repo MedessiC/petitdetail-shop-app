@@ -170,6 +170,7 @@ const produitVide = (category_id: string): Omit<Product, "id"> => ({
   description: "",
   prix: 0,
   category_id,
+  genre: "mixte",
   images: [IMAGES.colliers],
   stock: 0,
   actif: true,
@@ -223,6 +224,15 @@ function Produits() {
             </option>
           ))}
         </select>
+        <select
+          className={input}
+          value={brouillon.genre ?? "mixte"}
+          onChange={(e) => setBrouillon({ ...brouillon, genre: e.target.value as Product["genre"] })}
+        >
+          <option value="femme">Femme</option>
+          <option value="homme">Homme</option>
+          <option value="mixte">Mixte</option>
+        </select>
         <input
           className={input}
           type="number"
@@ -259,6 +269,15 @@ function Produits() {
                   {c.nom}
                 </option>
               ))}
+            </select>
+            <select
+              className={input}
+              value={p.genre ?? "mixte"}
+              onChange={(e) => updateProduct(p.id, { genre: e.target.value as Product["genre"] })}
+            >
+              <option value="femme">Femme</option>
+              <option value="homme">Homme</option>
+              <option value="mixte">Mixte</option>
             </select>
             <input
               className={input}
