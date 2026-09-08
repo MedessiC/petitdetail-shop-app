@@ -3,9 +3,9 @@ import { a as Mail } from "../_libs/lucide-react.mjs";
 import { a as FaWhatsapp, i as FaTiktok, n as FaLinkedinIn, r as FaPhone, t as FaFacebookF } from "../_libs/react-icons.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/contact-UdYGbfLW.js
 var import_jsx_runtime = require_jsx_runtime();
-var telephone = "+22997123456";
+var telephone = "+22991954765";
 var email = "contact@petitdetail.bj";
-var whatsappUrl = "https://wa.me/22997123456?text=Bonjour%20petitd%C3%A9tail%2C%20je%20souhaite%20un%20renseignement.";
+var whatsappUrl = "https://wa.me/22991954765?text=Bonjour%20petitd%C3%A9tail%2C%20je%20souhaite%20un%20renseignement.";
 function Contact() {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 		className: "mx-auto max-w-4xl px-4 py-16 text-center",

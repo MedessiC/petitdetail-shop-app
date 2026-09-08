@@ -11,7 +11,7 @@ const visuelsCategories: Record<string, string> = {
   bagues: IMAGES.bagues,
 };
 const whatsappUrl =
-  "https://wa.me/22997123456?text=Bonjour%20petitd%C3%A9tail%2C%20je%20souhaite%20un%20renseignement.";
+  "https://wa.me/22991954765?text=Bonjour%20petitd%C3%A9tail%2C%20je%20souhaite%20un%20renseignement.";
 
 export function MobileCategoryNav() {
   const { categories } = useDb();

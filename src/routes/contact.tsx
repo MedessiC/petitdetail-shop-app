@@ -8,10 +8,10 @@ import {
 } from "react-icons/fa";
 import { Mail } from "lucide-react";
 
-const telephone = "+22997123456";
+const telephone = "+22991954765";
 const email = "contact@petitdetail.bj";
 const whatsappUrl =
-  "https://wa.me/22997123456?text=Bonjour%20petitd%C3%A9tail%2C%20je%20souhaite%20un%20renseignement.";
+  "https://wa.me/22991954765?text=Bonjour%20petitd%C3%A9tail%2C%20je%20souhaite%20un%20renseignement.";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
