@@ -1,4 +1,4 @@
-//#region node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-C5udB_Cw.js
+//#region node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-7wdUQ3NQ.js
 var tsrStartManifest = () => ({ routes: {
 	__root__: {
 		filePath: "/Users/coovimedessi/petitdetail-shop-app/src/routes/__root.tsx",
@@ -13,7 +13,7 @@ var tsrStartManifest = () => ({ routes: {
 			"/produit/$id"
 		],
 		preloads: [
-			"/assets/index-D4H1kS7i.js",
+			"/assets/index-5GmI8_v3.js",
 			"/assets/jsx-runtime-BkSabwWG.js",
 			"/assets/react-DHmoMYoq.js",
 			"/assets/link-D0kujlJP.js",
@@ -29,7 +29,7 @@ var tsrStartManifest = () => ({ routes: {
 		scripts: [{ attrs: {
 			type: "module",
 			async: !0,
-			src: "/assets/index-D4H1kS7i.js"
+			src: "/assets/index-5GmI8_v3.js"
 		} }]
 	},
 	"/": {

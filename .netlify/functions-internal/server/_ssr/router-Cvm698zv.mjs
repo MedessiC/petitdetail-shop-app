@@ -10,7 +10,7 @@ import { t as Route$8 } from "./produit._id-vQfDGnSk.mjs";
 import { t as Toaster } from "../_libs/sonner.mjs";
 import { t as hero_image1_default } from "./hero-image1-BsSvHPx8.mjs";
 import { t as QueryClient } from "../_libs/tanstack__query-core.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/router-BYYwQOh4.js
+//#region node_modules/.nitro/vite/services/ssr/assets/router-Cvm698zv.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 function Footer() {
@@ -319,7 +319,7 @@ var Toaster$1 = ({ ...props }) => {
 		...props
 	});
 };
-var styles_default = "/assets/styles-ClKLZ4Tr.css";
+var styles_default = "/assets/styles-BOeixyF6.css";
 function reportLovableError(error, context = {}) {
 	if (typeof window === "undefined") return;
 	window.__lovableEvents?.captureException?.(error, {

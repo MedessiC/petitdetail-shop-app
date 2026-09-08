@@ -194,3 +194,7 @@
     scroll-behavior: auto !important;
   }
 }
+
+a[href*="netlify"] {
+  display: none !important;
+}
