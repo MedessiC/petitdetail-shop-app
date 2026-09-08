@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "@tanstack/react-router";
 import { Menu, Search, ShoppingBag, X } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 
 import { Logo } from "./Logo";
@@ -11,6 +12,9 @@ const liens = [
   { to: "/a-propos", label: "À propos" },
   { to: "/contact", label: "Contact" },
 ] as const;
+
+const whatsappUrl =
+  "https://wa.me/22991954765?text=Bonjour%20petitd%C3%A9tail%2C%20je%20souhaite%20un%20renseignement.";
 
 export function Navbar() {
   const [ouvert, setOuvert] = useState(false);
@@ -86,6 +90,17 @@ export function Navbar() {
             />
           </label>
         </form>
+
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Contacter petitdétail sur WhatsApp"
+          title="Contacter sur WhatsApp"
+          className="hidden h-11 w-11 shrink-0 items-center justify-center text-[#25D366] transition hover:opacity-70 md:flex"
+        >
+          <FaWhatsapp size={22} aria-hidden="true" />
+        </a>
 
         <Link
           to="/panier"
